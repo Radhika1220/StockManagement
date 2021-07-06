@@ -8,8 +8,9 @@ namespace StockManagement2
 {
     interface IStock
     {
-        public void StockManagement();
+        public void DisplayStock();
         public void CalculateForEachValue();
         public void CalculateForTotalValue();
+        public void StockAccount(string fileName);
     }
 }

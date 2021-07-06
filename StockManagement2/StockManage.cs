@@ -10,7 +10,8 @@ namespace StockManagement2
     {
         public List<StocksRecords> Stocks { get; set; }
 
-
+        public List<Account> account { get; set; }
+       
         public class StocksRecords
         {
             public string Name { get; set; }
@@ -19,6 +20,15 @@ namespace StockManagement2
             public int SharePrice { get; set; }
 
         }
+
+        internal class Account
+        {
+            public string AccountName { get; set; }
+        }
     }
 
+    public class Account
+    {
+       public string AccountName { get; set; }
+    }
 }
