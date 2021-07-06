@@ -4,6 +4,8 @@ namespace StockManagement2
 {
     class Program
     {
+        private static string filePath;
+
         static void Main(string[] args)
         {
             Stock stock = new Stock();
@@ -26,7 +28,7 @@ namespace StockManagement2
                     break;
                 case "4":
                    
-                    stock.StockAccount(@"C:\Users\Radhika\source\repos\StockManagement1\StockManagement1\JsonReport.json");
+                    stock.StockAccount(filePath);
                     break;
                 default:
                     Console.WriteLine("Enter the valid option");

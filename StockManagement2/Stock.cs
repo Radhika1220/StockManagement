@@ -11,19 +11,21 @@ namespace StockManagement2
 {
     class Stock : IStock
 
-    { 
-      
+    {
+
         StockMange utility = JsonConvert.DeserializeObject<StockMange>(File.ReadAllText(@"C:\Users\Radhika\source\repos\StockManagement1\StockManagement1\JsonReport.json"));
+
+
         public void DisplayStock()
         {
-            
+
 
             foreach (StockMange.StocksRecords s in utility.Stocks)
             {
-                Console.WriteLine( "\nName of the stock :" + s.Name + "\nTotal stocks of company : " + s.NumOfShares + "\nStock price : " + s.SharePrice);
+                Console.WriteLine("\nName of the stock :" + s.Name + "\nTotal stocks of company : " + s.NumOfShares + "\nStock price : " + s.SharePrice);
             }
         }
-     
+
         public void CalculateForEachValue()
         {
             double val = 0, price = 0;
@@ -53,10 +55,17 @@ namespace StockManagement2
             Console.WriteLine("Total stock value is : " + totalVal);
 
         }
-       public void StockAccount(string fileName)
+        public void StockAccount(string fileName)
         {
-            utility=JsonConvert.DeserializeObject<StockMange>(File.ReadAllText(@"C:\Users\Radhika\source\repos\StockManagement1\StockManagement1\JsonReport.json"));
+            string filePath = @"C:\Users\Radhika\source\repos\StockManagement1\StockManagement1\JsonReport.json";
+            utility = JsonConvert.DeserializeObject<StockMange>(File.ReadAllText(filePath));
             DisplayStock();
+        }
+
+
+        public void Buy(int amount, string symbol)
+        {
+
         }
     }
 }
