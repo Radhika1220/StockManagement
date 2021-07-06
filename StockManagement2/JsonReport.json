@@ -1,0 +1,19 @@
+﻿{
+  "Stocks": [
+    {
+      "Name": "Infosys",
+      "NumOfShares": 30,
+      "SharePrice": 2000
+    },
+    {
+      "Name": "TCS",
+      "NumOfShares": 32,
+      "SharePrice": 7000
+    },
+    {
+      "Name": "Accenture",
+      "NumOfShares": 38,
+      "SharePrice": 5000
+    }
+  ]
+}
