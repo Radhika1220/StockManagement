@@ -1,0 +1,22 @@
+{
+  "AccountList": 
+  [
+    {
+      "holderName": "Radhika",
+      "stockName": "HDFC",
+      "shares": 5,
+      "price": 180
+    },
+    {
+      "holderName": "Radhika",
+      "stockName": "ICICI",
+      "shares": 5,
+      "price": 100
+    },
+    {
+      "holderName": "Radhika",
+      "stockName": "State Bank Of India",
+      "shares": 3,
+      "price": 10
+    }
+  ]}

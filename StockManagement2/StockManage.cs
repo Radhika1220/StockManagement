@@ -1,34 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StockManagement2
 {
-    class StockMange
+    class StockManage
     {
-        public List<StocksRecords> Stocks { get; set; }
+        public LinkedList<Stocks> stocksList { get; set; }
 
-        public List<Account> account { get; set; }
-       
-        public class StocksRecords
+        public class Stocks
         {
-            public string Name { get; set; }
-            public int NumOfShares { get; set; }
-
-            public int SharePrice { get; set; }
-
-        }
-
-        internal class Account
-        {
-            public string AccountName { get; set; }
+            public string StockName { get; set; }
+            public int numOfShares { get; set; }
+            public int sharePrice { get; set; }
         }
     }
 
-    public class Account
-    {
-       public string AccountName { get; set; }
-    }
+
 }

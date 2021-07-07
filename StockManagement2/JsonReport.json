@@ -1,19 +1,24 @@
-﻿{
-  "Stocks": [
+{
+  "stocksList": 
+  [
     {
-      "Name": "Infosys",
-      "NumOfShares": 30,
-      "SharePrice": 2000
+      "StockName": "HDFC",
+      "numOfShares": 5,
+      "sharePrice": 110
     },
     {
-      "Name": "TCS",
-      "NumOfShares": 32,
-      "SharePrice": 7000
+      "StockName": "ICICI",
+      "numOfShares": 5,
+      "sharePrice": 50
     },
     {
-      "Name": "Accenture",
-      "NumOfShares": 38,
-      "SharePrice": 5000
+      "StockName": "State Bank of India",
+      "numOfShares": 2,
+      "sharePrice": 180
+    },
+    {
+      "StockName": "PNB",
+      "numOfShares": 2,
+      "sharePrice": 150
     }
-  ]
-}
+  ]}

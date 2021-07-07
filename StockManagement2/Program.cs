@@ -1,37 +1,81 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using StockManagement2;
+using System;
+using System.IO;
 
-namespace StockManagement2
+namespace StockManagment2
 {
-    class Program
+    class StockCall
     {
         static void Main(string[] args)
         {
-            Stock stock = new Stock();
-            Console.WriteLine("***Welcome To Stock Inventory System***");
-            Console.WriteLine("1.Display the all stock details");
-            Console.WriteLine("2.Calculating each share value");
-            Console.WriteLine("3.Calculating Total share value");
-            Console.WriteLine("4.Stock account");
-            Console.WriteLine("Enter the Option!!!!");
+            //Object For StockManager
+            Stock stockManager = new Stock();
+            
+         //getting path of json file
+            string filePath = @"C:\Users\Radhika\source\repos\StockManagement2\StockManagement2\JsonReport.json";
+            string acc = @"C:\Users\Radhika\source\repos\StockManagement2\StockManagement2\AccountReport.json";
+
+            //Deserialize  the Json file
+            StockManage stockUtility = JsonConvert.DeserializeObject<StockManage>(File.ReadAllText(filePath));
+            AccountManage accountUtility = JsonConvert.DeserializeObject<AccountManage>(File.ReadAllText(acc));
+
+            Console.WriteLine("Enter 1 to display stocks");
+            var s = stockUtility.stocksList;
+    
             switch (Console.ReadLine())
             {
-                case "1":
-                    stock.DisplayStock();
-                    break;
-                case "2":
-                    stock.CalculateForEachValue();
-                    break;
-                case "3":
-                    stock.CalculateForTotalValue();
-                    break;
-                case "4":
-                   
-                    stock.StockAccount(@"C:\Users\Radhika\source\repos\StockManagement1\StockManagement1\JsonReport.json");
-                    break;
-                default:
-                    Console.WriteLine("Enter the valid option");
+             
+                    case "1":
+                    stockManager.DisplayStocks(s);
                     break;
             }
+           
+            Console.WriteLine("--------------------Opeartions Performing in stock--------------------");
+
+            string flag = "Y";
+            while (flag == "Y")
+            {
+                Console.WriteLine("Please Enter :\n1-Display user account\n2-To buy a share\n3-To sell a share\n4-To Display Account report");
+                int ch = Convert.ToInt32(Console.ReadLine());
+                var u = accountUtility.AccountList;
+                switch (ch)
+                {
+                    case 1:
+                        stockManager.StockAccount(acc);
+                        break;
+                    case 2:
+                        Console.WriteLine("Enter amount: ");
+                        int amount = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter company name in which you want to buy share: ");
+                        string companyname = Console.ReadLine();
+                        stockManager.Buy(amount, companyname);
+                        File.WriteAllText(acc, JsonConvert.SerializeObject(accountUtility));
+                        break;
+                    case 3:
+                        Console.WriteLine("Enter amount: ");
+                        int amount1 = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("Enter company name in which you want to sell share: ");
+                        string companyname1 = Console.ReadLine();
+                        stockManager.Sell(amount1, companyname1);
+                        File.WriteAllText(acc, JsonConvert.SerializeObject(accountUtility));
+                        break;
+                    case 4:
+                        stockManager.StockPurchased();
+                        stockManager.StockSold();
+                        stockManager.DateAndTime();
+                        break;
+                    default:
+                        Console.WriteLine("Enter a valid option!!!");
+                        break;
+
+
+                }
+                Console.WriteLine("\nDo you want to continue?(Y/N)");
+                Console.ReadLine();
+            }
+
+
         }
     }
 }
